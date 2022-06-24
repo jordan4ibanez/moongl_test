@@ -24,6 +24,8 @@ function ecs:add_component(component)
 
     assert(component ~= nil or type(component) ~= "string", "ecs key word must be a string")
 
+
+
     if not self[component] then
         self[component] = {}
     end
@@ -33,6 +35,11 @@ end
 
 function ecs:add_components(component_table)
     for key,value in pairs(component_table) do
+
+        assert(value ~= "entity_count", "entity_count is a reserved key word for ecs")
+
+        assert(value ~= nil or type(value) ~= "string", "ecs key word must be a string")
+
         if not self[value] then
             self[value] = {}
         end
@@ -48,20 +55,25 @@ function ecs:add_entity(component_variable_table)
 
     -- dynamic calculation of missing variables
 
-    local component_list = {}
-
     for key,_ in pairs(self) do
-        table.insert(component_list, key)
+
+        -- don't utilize ecs builder
+
+        if key ~= "entity_count" then
+
+            local new_value = component_variable_table[key]
+
+            -- undefined - false
+            if new_value == nil then
+                component_variable_table[table] = false
+
+            -- defined - intake
+            else
+                self[key][self.entity_count] = new_value
+            end
+
+        end
     end
-
-    -- insert defined values
-
-    for key,value in pairs(component_variable_table) do
-        self[key] = value
-
-        component_list[key] = nil
-    end
-
 end
 
 
@@ -71,13 +83,13 @@ local my_ecs = ecs:new()
 
 my_ecs:add_component("life")
 
--- my_ecs:add_components({})
+my_ecs:add_components({"stars"})
+
 
 my_ecs:add_entity({
-    life = true
+    life = "gold",
+    stars = "ye"
 })
-
-
 
 print(dump(my_ecs))
 
