@@ -3,6 +3,7 @@
         "glfw",
         "window",
         "my_object_multiline",
-        "my_object"
+        "my_object",
+        "dump"
     ]
 }
