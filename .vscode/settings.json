@@ -5,6 +5,7 @@
         "my_object_multiline",
         "my_object",
         "dump",
-        "gl"
+        "gl",
+        "ecs"
     ]
 }

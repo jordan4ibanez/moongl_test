@@ -1,6 +1,6 @@
 -- ecs base class
 
-local ecs = {}
+ecs = {}
 
 -- constructor
 
