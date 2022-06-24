@@ -33,6 +33,37 @@ local function basic_dump(o)
 	end
 end
 
+local keywords = {
+	["and"] = true,
+	["break"] = true,
+	["do"] = true,
+	["else"] = true,
+	["elseif"] = true,
+	["end"] = true,
+	["false"] = true,
+	["for"] = true,
+	["function"] = true,
+	["if"] = true,
+	["in"] = true,
+	["local"] = true,
+	["nil"] = true,
+	["not"] = true,
+	["or"] = true,
+	["repeat"] = true,
+	["return"] = true,
+	["then"] = true,
+	["true"] = true,
+	["until"] = true,
+	["while"] = true,
+}
+
+local function is_valid_identifier(str)
+	if not str:find("^[a-zA-Z_][a-zA-Z0-9_]*$") or keywords[str] then
+		return false
+	end
+	return true
+end
+
 function dump(o, indent, nested, level)
 	local t = type(o)
 	if not level and t == "userdata" then
