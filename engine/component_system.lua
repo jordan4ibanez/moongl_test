@@ -22,7 +22,9 @@ function ecs:add_component(component)
 
     assert(component ~= "entity_count", "entity_count is a reserved key word for ecs")
 
-    assert(component ~= nil or type(component) ~= "string", "ecs key word must be a string")
+    assert(type(component) == "string", "ecs key word must be a string")
+
+    assert(component ~= nil, "nil keyword for ecs")
 
 
 
@@ -38,7 +40,9 @@ function ecs:add_components(component_table)
 
         assert(value ~= "entity_count", "entity_count is a reserved key word for ecs")
 
-        assert(value ~= nil or type(value) ~= "string", "ecs key word must be a string")
+        assert(type(value) == "string", "ecs key word must be a string")
+
+        assert(value ~= nil, "nil keyword for ecs")
 
         if not self[value] then
             self[value] = {}
