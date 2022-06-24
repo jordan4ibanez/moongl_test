@@ -47,6 +47,7 @@ function ecs:add_components(component_table)
 end
 
 -- entity creation system
+
 function ecs:add_entity(component_variable_table)
 
     -- skip having to count internal tables
@@ -64,14 +65,30 @@ function ecs:add_entity(component_variable_table)
             local new_value = component_variable_table[key]
 
             -- undefined - false
+
             if new_value == nil then
                 component_variable_table[table] = false
 
             -- defined - intake
+
             else
                 self[key][self.entity_count] = new_value
             end
 
+        end
+    end
+end
+
+-- entity destruction system
+function ecs:remove_entity(index)
+
+    -- do not allow out of bounds
+
+    assert(index <= self.entity_count and index > 0, "trying to remove entity that does not exist!")
+
+    for key,table in pairs(self) do
+        if key ~= "entity_count" then
+            table[index] = nil
         end
     end
 end
@@ -81,15 +98,27 @@ end
 
 local my_ecs = ecs:new()
 
-my_ecs:add_component("life")
-
-my_ecs:add_components({"stars"})
+my_ecs:add_components({
+    "name", "order"
+})
 
 
 my_ecs:add_entity({
-    life = "gold",
-    stars = "ye"
+    name = "entity_1",
+    order = 1
 })
+
+my_ecs:add_entity({
+    name = "entity_2",
+    order = 2
+})
+
+my_ecs:add_entity({
+    name = "entity_0",
+    order = 4
+})
+
+my_ecs:remove_entity(1)
 
 print(dump(my_ecs))
 
