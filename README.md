@@ -61,3 +61,14 @@ make
 
 sudo make install
 ```
+
+## MoonFonts
+```
+git clone https://github.com/stetre/moonfonts
+
+cd moonfonts
+
+make
+
+sudo make install
+```
