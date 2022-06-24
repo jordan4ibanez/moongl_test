@@ -143,7 +143,7 @@ JavaObject = {
 
 }
 
-
+--[[
 local test_object_multiline = my_object_multiline:new(nil,1,4,false)
 
 local test_object_consolidated = my_object:new(nil,1,24,false)
@@ -156,3 +156,4 @@ test_object_multiline:print_distance_from_center()
 test_object_consolidated:print_distance_from_center()
 
 testObjectJava:printDistanceFromCenter()
+]]--
