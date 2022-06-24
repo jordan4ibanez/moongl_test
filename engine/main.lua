@@ -37,6 +37,12 @@ glfw.set_key_callback(window,
         if key == "escape" then
             glfw.set_window_should_close(window, true)
         end
+
+        -- change clear color debug
+        if key == "f1" and action == "press" then
+            print("flarl")
+            clear_color = {0.0,1.0,1.0,1.0}
+        end
     end
 )
 
