@@ -1,10 +1,24 @@
 -- this is the entry point and main loop :)
 
+gl = require("moongl")
+
 -- glfw object
 glfw = require("moonglfw")
 
+-- set up glfw basic settings
+glfw.window_hint("context version major", 4)
+glfw.window_hint("context version minor", 4)
+glfw.window_hint("opengl profile", "core")
+
 -- window object
 window = glfw.create_window(640, 480, "Hello world!")
+
+glfw.make_context_current(window)
+
+-- initialize opengl into the glfw window
+gl.init()
+
+local clear_color = {1.0, 1.0, 1.0, 1.0}
 
 local function my_callback(w, x, y)
     assert(w == window)
@@ -32,4 +46,10 @@ glfw.set_cursor_pos_callback(window, my_callback)
 -- keep the window open unless it should close
 while not glfw.window_should_close(window) do
     glfw.poll_events()
+
+    gl.clear_color(clear_color[1], clear_color[2], clear_color[3], clear_color[4])
+
+    gl.clear("color", "depth")
+
+    glfw.swap_buffers(window)
 end
