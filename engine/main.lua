@@ -15,6 +15,17 @@ local function my_callback(w, x, y)
     end
 end
 
+-- make the window do things when keys are pressed
+glfw.set_key_callback(window,
+    function(kwindow, key, scancode, action, shift, control, alt, super)
+        
+        -- close window
+        if key == "escape" then
+            glfw.set_window_should_close(window, true)
+        end
+    end
+)
+
 -- make the window do things when the cursor is inside it
 glfw.set_cursor_pos_callback(window, my_callback)
 
