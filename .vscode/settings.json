@@ -1,6 +1,8 @@
 {
     "Lua.diagnostics.globals": [
         "glfw",
-        "window"
+        "window",
+        "my_object_multiline",
+        "my_object"
     ]
 }
