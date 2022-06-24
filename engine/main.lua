@@ -4,6 +4,8 @@ dofile("helper/dump.lua")
 
 dofile("engine/object_oriented_test.lua")
 
+dofile("engine/component_system.lua")
+
 gl = require("moongl")
 
 -- glfw object
