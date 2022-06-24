@@ -1,5 +1,7 @@
 -- this is the entry point and main loop :)
 
+dofile("engine/object_oriented_test.lua")
+
 gl = require("moongl")
 
 -- glfw object
