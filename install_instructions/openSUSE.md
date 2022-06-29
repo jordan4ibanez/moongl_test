@@ -16,7 +16,7 @@ sudo make install
 ```
 
 
-## MoonGL - OpenGL - Needs another run through in virtual machine
+## MoonGL - OpenGL
 ```
 sudo zypper install Mesa-libGL-devel glew-devel
 
