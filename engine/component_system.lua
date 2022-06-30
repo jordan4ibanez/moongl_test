@@ -128,14 +128,15 @@ my_ecs:add_entity({
 
 my_ecs:remove_entity(1)
 
-
 my_ecs:add_entity({
     name = "GOOBER",
     order = -1000
 })
 
+dump_ecs(my_ecs)
+
 for index, value in ipairs(my_ecs.name) do
-    print(index)
+    -- print(index)
 end
 
 -- print(dump(my_ecs))
