@@ -55,6 +55,16 @@ function ecs:add_components(component_table)
     end
 end
 
+-- allows you to get the component table
+
+function ecs:get_component(component)
+    if self[component] then
+        return self[component]
+    else
+        return nil
+    end
+end
+
 -- entity creation system
 
 function ecs:add_entity(component_variable_table)
@@ -145,7 +155,7 @@ end
 -- basic system test
 
 local function test_my_ecs()
-    
+
 end
 
 local complete = false
