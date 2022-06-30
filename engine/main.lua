@@ -28,10 +28,10 @@ local clear_color = {1.0, 1.0, 1.0, 1.0}
 
 local function my_callback(w, x, y)
     assert(w == window)
-    print("cursor position:", x, y)
+    -- print("cursor position:", x, y)
 
     if x <= 10 then
-        print("Wow!")
+        -- print("Wow!")
     end
 end
 
