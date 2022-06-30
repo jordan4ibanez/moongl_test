@@ -28,7 +28,7 @@ Now let's take a look at the following simple example of an ECS holding the same
 
 ```
 entity_holder = {
-    life = {  10,     8      }
+    life = {  10,     8      },
     name = { "jeff", "frank" }
 }
 ```
