@@ -1,3 +1,8 @@
+local table_remove, table_insert
+= 
+      table.remove, table.insert
+
+
 -- ecs base class
 
 ecs = {}
@@ -71,13 +76,10 @@ function ecs:add_entity(component_variable_table)
             -- undefined - false
 
             if new_value == nil then
-                component_variable_table[table] = false
-
-            -- defined - intake
-
-            else
-                self[key][self.entity_count] = new_value
+                new_value = false
             end
+
+            table_insert(self[key], new_value)
 
         end
     end
@@ -92,9 +94,11 @@ function ecs:remove_entity(index)
 
     for key,table in pairs(self) do
         if key ~= "entity_count" then
-            table[index] = nil
+            table_remove(table, index)
         end
     end
+
+    self.entity_count = self.entity_count - 1
 end
 
 
@@ -119,10 +123,20 @@ my_ecs:add_entity({
 
 my_ecs:add_entity({
     name = "entity_0",
-    order = 4
+    order = -1
 })
 
 my_ecs:remove_entity(1)
 
-print(dump(my_ecs))
+
+my_ecs:add_entity({
+    name = "GOOBER",
+    order = -1000
+})
+
+for index, value in ipairs(my_ecs.name) do
+    print(index)
+end
+
+-- print(dump(my_ecs))
 
