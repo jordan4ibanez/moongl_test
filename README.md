@@ -2,7 +2,9 @@
 
 **A learning experience for moongl**
 
-Probably only going to run on Linux
+This is built utilzing [Moonlibs](https://github.com/stetre/moonlibs) https://github.com/stetre/moonlibs. Moonlibs is an awesome natively compiled api for C libraries using Lua to run the entire engine's logic.
+
+Probably only going to run on Linux. Might pop up a Windows 10/11 script to install [Moonlibs](https://github.com/stetre/moonlibs) automatically.
 
 
 ---
