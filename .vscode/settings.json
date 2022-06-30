@@ -6,6 +6,7 @@
         "my_object",
         "dump",
         "gl",
-        "ecs"
+        "ecs",
+        "dump_ecs"
     ]
 }

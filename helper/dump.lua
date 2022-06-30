@@ -8,7 +8,9 @@
 
 --------------------------------------------------------------------------------
 -- Localize functions to avoid table lookups (better performance).
-local string_sub, string_find = string.sub, string.find
+local string_sub, string_find, table_insert
+=
+      string.sub, string.find, table.insert
 
 --------------------------------------------------------------------------------
 local function basic_dump(o)
@@ -108,4 +110,42 @@ function dump(o, indent, nested, level)
 				end_indent_str)
 	end
 	return "{"..table.concat(ret, ", ").."}"
+end
+
+
+function dump_ecs(entity_component_system)
+
+	-- don't try to print ecs if no entities
+
+	if entity_component_system.entity_count <= 0 then
+		print("No entities defined")
+		return
+	end
+
+	-- preassemble the components of the ecs
+
+	local key_dump = {}
+
+	for key,_ in pairs(entity_component_system) do
+		if key ~= "entity_count" then
+			table_insert(key_dump, key)
+		end
+	end
+
+	-- run through each entity, assemble it into debug string
+
+	for i = 1,entity_component_system.entity_count do
+
+		local entity_print_string = "[entity " .. tostring(i) .. "]"
+
+		for _,value in ipairs(key_dump) do
+
+			entity_print_string = entity_print_string .. " " .. value .. ": "
+
+			entity_print_string = entity_print_string .. entity_component_system[value][i] .. " |"
+
+		end
+
+		print(entity_print_string)
+	end
 end
