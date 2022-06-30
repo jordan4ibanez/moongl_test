@@ -141,3 +141,15 @@ end
 
 -- print(dump(my_ecs))
 
+
+-- basic system test
+
+local function test_my_ecs()
+    
+end
+
+local complete = false
+
+while not complete do
+
+end
