@@ -15,6 +15,7 @@ Probably only going to run on Linux. Might pop up a Windows 10/11 script to inst
 [openSUSE TumbleWeed install instructions](https://github.com/jordan4ibanez/moongl_test/blob/main/install_instructions/openSUSE.md)
 
 [Arch Linux install instructions](https://github.com/jordan4ibanez/moongl_test/blob/main/install_instructions/arch.md)
+
 ---
 ## Discord
 This is my discord: https://discord.gg/dRPyvubfyg
