@@ -154,12 +154,13 @@ end
 
 -- basic system test
 
-local function test_my_ecs()
+function test_my_ecs()
+    local ordering = my_ecs:get_component("order")
 
+    for key,value in ipairs(ordering) do
+        print(key .. " | " .. tostring(value))
+    end
 end
+
 
 local complete = false
-
-while not complete do
-
-end

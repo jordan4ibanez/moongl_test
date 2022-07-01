@@ -61,6 +61,9 @@ while not glfw.window_should_close(window) do
 
     gl.clear_color(clear_color[1], clear_color[2], clear_color[3], clear_color[4])
 
+
+    test_my_ecs()
+
     gl.clear("color", "depth")
 
     glfw.swap_buffers(window)
