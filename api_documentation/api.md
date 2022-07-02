@@ -40,6 +40,15 @@ my_component_system:add_entity({
 })
 ```
 
+## ecs:get_component(component)
+
+Let's you get a component of the entities. ``component`` is a string literal.
+
+```
+local life_component = my_component_system:get_component("life")
+```
+
+
 ## ecs:remove_entity(index)
 
 Removes an entity from the ECS. Index is a number. It's best to let a system handle this rather than try to manually remove indexes.
